@@ -1,0 +1,9 @@
+.page-heading {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 30px 15px;
+    text-align: center;
+    color: rgba(255,255,255,.5);
+    background-color: #b84d45;
+    font-size: 1.25rem;
+}
