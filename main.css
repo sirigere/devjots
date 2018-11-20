@@ -7,3 +7,16 @@
     background-color: #b84d45;
     font-size: 1.25rem;
 }
+
+.page-heading h1 {
+    margin-top: 0;
+    color: #fff;
+	font-size: 3.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: pt sans caption,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+
