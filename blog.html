@@ -2,13 +2,14 @@
 layout: default
 title: Blog
 ---
-<h1>Latest Posts</h1>
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt }}</p>
-    </li>
-  {% endfor %}
-</ul>
+<main role="main" class="container">
+	<div class="my-3 p-3 bg-white rounded shadow-sm">
+		{% for post in site.posts %}
+		<div class="alert alert-secondary" role="alert">
+			<h4 class="alert-heading"><a href="{{ post.url }}">{{ post.title }}</a></h4>
+			<p>{{ post.excerpt }}</p>
+		</div>
+		{% endfor %}
+	</div>
+</main>
