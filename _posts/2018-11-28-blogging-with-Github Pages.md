@@ -7,10 +7,10 @@ tags: [Jekyll,Github,GithubPages]
 ---
 This blog captures how this site is built. Some of my findings that could be of your interest too... 
 
-* Blog with a custom domain name
-* Hosting the blog site
-* Site to support https
-* Have a simple mechanism for posting new blogs
+* [Blog with a custom domain name](#host-the-blog-with-a-custom-domain)
+* [Hosting the blog site](#identify-the-provider-to-host)
+* [Site to support https](#site-to-support-https)
+* [Have a simple mechanism for posting new blogs](#have-a-simple-mechanism-for-posting-new-blogs)
 
 ##### Host the blog with a custom domain
 Went through many domain registrars and finalized with GoDaddy for purchasing this domain. Couple of reason to go with GoDaddy
