@@ -20,15 +20,18 @@ Went through many domain registrars and finalized with GoDaddy for purchasing th
 
 ##### Identify the provider to host
 This took a little while to decide on. There are many options out there. I decided to host this blog site using Github Pages as it offered me below advantages
-* Adding a blog post is as simple as commiting a markdown page and pushing it to Github
-* I do not have any private content to protect against
-* Content in the site is static and Github can only host static content. This also meant I now need to learn new tools like
-	* Jekyll: Jekyll is one of the most used static site generator. They have excellent [tutorial](https://jekyllrb.com/docs/step-by-step) for onboarding. Jekyll is based on Ruby. As a windows user, you can follow the [steps](https://jekyllrb.com/docs/installation/windows/) to install Ruby.
-	* Configuring custom domain: This involve updating DNS records @ GoDaddy as well as at Github Pages. Github Pages got excellent [documentation](https://help.github.com/categories/customizing-github-pages/) for the same.
-* Github Pages is a free offering
+* Adding a blog post is as simple as commiting a markdown page and pushing it to Github.
+* Github Pages can only serve static pages. Github Pages use Ruby based Jekyll static site generator. Whenever you checkin, CI/CD pipeline starts a Jekyll based build to generate the static pages for your site. Below are some of the notes related to Jekyll.
+	* If you are a windows user like me, you would have to install Ruby on your machine to start with. This [page](https://jekyllrb.com/docs/installation/windows/) guides you with steps to follow to install both Ruby and Jekyll.
+	* To build a site locally from command prompt, run command <code>jekyll build</code>
+	* To build and run a site locally from command prompt, run command <code>jekyll serve</code>
+	* This [page](https://jekyllrb.com/docs/step-by-step/01-setup/) provides step by step guid to get started on Jekyll
+	* Configure DNS records to point to Githup Pages. Added A Record entries following the documentation from the [page](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider).
+	* Configure Github Pages to use custom domain. Used the documentation from the [page](https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/)
+* This service is free
 		
 ##### Site to support https
 Out of the box, Github Pages work with [Let’s Encrypt](https://letsencrypt.org/) to provide free Domain Validation (DV) certificates. These cerificates are valid for 90 days. We should ask for a new certificates to renew the old one. This is automated through ACME protocol. Github does automatic renewal for you.
 
 ##### Have a simple mechanism for posting new blogs
-As Github uses [Jekyll](https://jekyllrb.com) all I have to do is check in a new mark down file for posting a new blog.
+As Github uses [Jekyll](https://jekyllrb.com). By default Jekyll is blog aware. With this, all I have to do is check in a new mark down file for posting a new blog. Refer to [Pages](https://jekyllrb.com/docs/posts/) for details
