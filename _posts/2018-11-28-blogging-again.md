@@ -33,6 +33,3 @@ Out of the box, Github Pages work with [Let’s Encrypt](https://letsencrypt.org
 
 ##### Have a simple mechanism for posting new blogs
 As Github uses [Jekyll](https://jekyllrb.com) all I have to do is check in a new mark down file for posting a new blog.
-
------
-Do let me know if you have any clarification/suggestion/details on this post. I will be happy to know your feedback!
