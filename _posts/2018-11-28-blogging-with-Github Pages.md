@@ -4,6 +4,8 @@ author: Sanjeev
 comments: true
 categories: [Personal]
 tags: [Jekyll,Github,GithubPages]
+identifier: GitPages
+title: Blogging with Github Pages
 ---
 This blog captures how this site is built. Some of my findings that could be of your interest too... 
 
