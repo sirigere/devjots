@@ -1,6 +1,7 @@
 ---
 layout: post
 author: Sanjeev
+comments: true
 categories: [Personal]
 tags: [Jekyll,Github,GithubPages]
 ---
