@@ -1,0 +1,17 @@
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+	{% for post in site.posts %}
+	<div class="alert alert-secondary" role="alert">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h4 class="alert-heading mr-auto">
+						<a href="{{ post.url }}" class="alert-link">{{ post.title }}</a>
+					</h4>
+				</div>
+				<div class="col-auto">{{ post.date | date_to_string }}</div>
+			</div>
+			<p>{{ post.excerpt }}</p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
