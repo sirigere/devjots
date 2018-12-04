@@ -20,14 +20,28 @@ Went through many domain registrars and finalized with GoDaddy for purchasing th
 * Easy interface for managing the DNS records
 * One of the known names in the industry
 
+
+<div class="row">
+<div class="col-3">
+</div>
+<div class="col-5">
+<small class="text-info">Below are DNS entries @ GoDaddy. Click on image to enlarge. </small>
+<a href="/assets/images/godaddy_dns.png">
+<img src = "/assets/images/godaddy_dns.png" class="img-thumbnail">
+</a>
+</div>
+<div class="col-4">
+</div>
+</div>
+
 ##### Identify the provider to host
-This took a little while to decide on. There are many options out there. I decided to host this blog site using Github Pages as it offered me below advantages
+I am hosting this blog site using Github Pages as it offered me below advantages
 * Adding a blog post is as simple as commiting a markdown page and pushing it to Github.
 * Github Pages can only serve static pages. Github Pages use Ruby based Jekyll static site generator. Whenever you checkin, CI/CD pipeline starts a Jekyll based build to generate the static pages for your site. Below are some of the notes related to Jekyll.
 	* If you are a windows user like me, you would have to install Ruby on your machine to start with. This [page](https://jekyllrb.com/docs/installation/windows/) guides you with steps to follow to install both Ruby and Jekyll.
 	* To build a site locally from command prompt, run command <code>jekyll build</code>
 	* To build and run a site locally from command prompt, run command <code>jekyll serve</code>
-	* This [page](https://jekyllrb.com/docs/step-by-step/01-setup/) provides step by step guid to get started on Jekyll
+	* This [page](https://jekyllrb.com/docs/step-by-step/01-setup/) provides step by step guide to get started on Jekyll
 	* Configure DNS records to point to Githup Pages. Added A Record entries following the documentation from the [page](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider).
 	* Configure Github Pages to use custom domain. Used the documentation from the [page](https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/)
 * This service is free
