@@ -63,3 +63,4 @@ As Github uses [Jekyll](https://jekyllrb.com). By default Jekyll is blog aware. 
 	* To build a site locally from command prompt, run command <code>jekyll build</code>
 	* To build and run a site locally from command prompt, run command <code>jekyll serve</code>
 	* This [page](https://jekyllrb.com/docs/step-by-step/01-setup/) provides step by step guide to get started on Jekyll
+* This site overrides the Jekyll theme to use [Bootstrap](https://getbootstrap.com).
