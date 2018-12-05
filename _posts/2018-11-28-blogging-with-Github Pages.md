@@ -25,7 +25,7 @@ Once the custom domain is purchased, Navigate to the panel which allows to updat
 <div class="col-5">
 <small class="text-info">Below are DNS entries @ GoDaddy. Click on image to enlarge. </small>
 <a href="/assets/images/godaddy_dns.png">
-<img src = "/assets/images/gitpages/godaddy_dns.png" class="img-thumbnail">
+<img src = "/assets/images/gitpages/godaddy_dns.png" class="img-thumbnail"/>
 </a>
 </div>
 <div class="col-4">
@@ -38,7 +38,7 @@ Once the custom domain is purchased, Navigate to the panel which allows to updat
 <div class="row"><div class="col-3"></div><div class="col-5">
 <small class="text-info">Below is the content of CNAME. Click on image to enlarge. </small>
 <a href="/assets/images/cname.png">
-<img src = "/assets/images/gitpages/cname.png" class="img-thumbnail">
+<img src = "/assets/images/gitpages/cname.png" class="img-thumbnail"/>
 </a>
 </div><div class="col-4"></div></div>
 + Navigate to the repository > Settings > GitHub Pages section.
@@ -46,7 +46,7 @@ Once the custom domain is purchased, Navigate to the panel which allows to updat
 <div class="row"><div class="col-3"></div><div class="col-5">
 <small class="text-info">Section Githup Pages. Click on image to enlarge. </small>
 <a href="/assets/images/custom_domain.png">
-<img src = "/assets/images/gitpages/custom_domain.png" class="img-thumbnail">
+<img src = "/assets/images/gitpages/custom_domain.png" class="img-thumbnail"/>
 </a>
 </div><div class="col-4"></div></div>
 
@@ -69,6 +69,16 @@ As Github uses [Jekyll](https://jekyllrb.com). By default Jekyll is blog aware. 
 ##### Limitations
 Below are few limitations I felt worth noting and be aware of
 + No HSTS header support. Refer issue [1249](https://github.com/isaacs/github/issues/1249)
-+ Cannot include your site part of the HSTS [preloaded list](https://hstspreload.org) as
++ Site do not pass eligibality test for [preloaded list](https://hstspreload.org) as
 	+ No HSTS header
 	+ www subdomain does not support HTTPS
+<div class="row">
+	<div class="col-3"></div>
+	<div class="col-5">
+		<small class="text-info">Eligible for preloading? Click on image to enlarge. </small>
+		<a href="/assets/images/pre_loaded_list_error.png">
+			<img src = "/assets/images/gitpages/pre_loaded_list_error.png" class="img-thumbnail"/>
+		</a>
+	</div>
+	<div class="col-4"></div>
+</div>
