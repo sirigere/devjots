@@ -15,7 +15,7 @@ This blog captures my jots on how I built this site.
 * [Have a simple mechanism for posting new blogs](#have-a-simple-mechanism-for-posting-new-blogs)
 
 ##### Configure Godaddy DNS entries
-Once the custom domain is purchased, Navigate to the panel which allows to update the DNS entries for the domain. In this page, we need to add A record to point to our site or main domain. Optionally we can add CNAME record to point to www sub domain too. In the below screenshot, you would see both A and CNAME records. I refered to [documentaion](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider) @ Github Pages for this.
+Once the custom domain is purchased, Navigate to the panel which allows to update the DNS entries for the domain. In this page, we need to add A record to point to our site or main domain. Optionally we can add CNAME record to point to www sub domain too. In the below screenshot, you would see both A and CNAME records. Refere [documentaion](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider) @ Github Pages for any updated information.
 
 
 <div class="row">
