@@ -13,6 +13,7 @@ This blog captures my jots on how I built this site.
 * [Configure Github Pages for custom domain](#configure-github-pages-for-custom-domain)
 * [Site to support https](#site-to-support-https)
 * [Have a simple mechanism for posting new blogs](#have-a-simple-mechanism-for-posting-new-blogs)
+* [Limitations](#limitations)
 
 ##### Configure Godaddy DNS entries
 Once the custom domain is purchased, Navigate to the panel which allows to update the DNS entries for the domain. In this page, we need to add A record to point to our site or main domain. Optionally we can add CNAME record to point to www sub domain too. In the below screenshot, you would see both A and CNAME records. Refere [documentaion](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider) @ Github Pages for any updated information.
@@ -64,3 +65,10 @@ As Github uses [Jekyll](https://jekyllrb.com). By default Jekyll is blog aware. 
 	* To build and run a site locally from command prompt, run command <code>jekyll serve</code>
 	* This [page](https://jekyllrb.com/docs/step-by-step/01-setup/) provides step by step guide to get started on Jekyll
 * This site overrides the Jekyll theme to use [Bootstrap](https://getbootstrap.com).
+
+##### Limitations
+Below are few limitations I felt worth noting and be aware of
++ No HSTS header support. Refer issue [1249](https://github.com/isaacs/github/issues/1249)
++ Cannot include your site part of the HSTS [preloaded list](https://hstspreload.org) as
+	+ No HSTS header
+	+ www subdomain does not support HTTPS
