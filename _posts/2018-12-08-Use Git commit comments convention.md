@@ -7,7 +7,7 @@ tags: [Git, Commit Comments]
 identifier: GitCommitComments
 title: Follow Git commit comments convention
 ---
-Many of us may not be aware that there are convention being followed for comments while commiting our changes to source code repositories. This is one thing I got to learn as while commiting to a open source project. This post discusses few of the learning I had with these commenting.
+Many of us may not be aware that, there are convention being followed for comments while commiting our changes to source code repositories. This is one thing I got to learn while commiting to an open source project.
 
 Open source projects follow conventions that are well accepted by the industry. Most of the open source projects specify a convention to follow while you are commiting your changes to the repository. Here is a commit convention documentation for [AngularJs](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#). This document has become a standard for many libraries built for Angular. Example [ng-lightning](https://github.com/ng-lightning/ng-lightning/commits/master),  [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap/commits/master).
 
