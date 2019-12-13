@@ -20,8 +20,8 @@ Below are some of the points to consider while working with reCaptcha.
             <li>When reCaptcha want to notify events like <code>success, errored, expired</code> by calling callback functions, it would be a good idea to have callback functions being aware of angular context</li>
         </ol>
     </li>
-    <li><b>Hanlde Expiration</b>: If entering captcha needs to be made mandatory, we need to ensure we always have a valid captcha. So, subscribe to the expiration notification to clear out the cached captcha. To do this, part of <code>window.grecaptcha.render</code> pass the callback function for expiry. Ex: <code>window.grecaptcha.render('..', {..., 'expired-callback': () => this.updateCaptchaStatus()});</code></li>
-    <li><b>Captcha can only be verified once</b>: When a captcha response is verified using the google api, captcha becomes invalidated. In other words, any subsequent API calls for the same captcha response will always fail. To ensure that we always get new one call 'reset' on the reCaptcha instance Ex: <code>window.grecaptcha.reset('&lt;instance id&gt;')</code></li>
+    <li><b>Hanlde Expiration</b>: If entering captcha needs to be made mandatory, we need to ensure that, captcha hold valid value. So, subscribe to the expiration notification to clear out the cached captcha. To do this, part of <code>window.grecaptcha.render</code> pass the callback function for expiry. Ex: <code>window.grecaptcha.render('..', {..., 'expired-callback': () => this.updateCaptchaStatus()});</code></li>
+    <li><b>Captcha can only be verified once</b>: When a captcha response is verified using the Google's api <code>https://www.google.com/recaptcha/api/siteverify</code>, captcha becomes invalidated. In other words, any subsequent API calls with the same captcha response will fail. To ensure that we always get new captcha call 'reset' on the reCaptcha instance Ex: <code>window.grecaptcha.reset('&lt;instance id&gt;')</code></li>
     <li>If site is protected with <code>Content Security Policy</code>, then consider adding below exceptions to the existing policy
         <ol>
             <li>font-src 'self' fonts.gstatic.com</li>
