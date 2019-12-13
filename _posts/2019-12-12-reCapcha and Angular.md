@@ -22,4 +22,11 @@ Below are some of the issues to consider while workign with reCaptcha.
     </li>
     <li><b>Hanlde Expiration</b>: If entering captcha needs to be made mandatory, we need to ensure we always have a valid captcha. So I subscribe to the expiration notification to clear out the cached captcha. To do this, part of <code>window.grecaptcha.render</code> pass the callback function for expiry. Ex: <code>window.grecaptcha.render('..', {..., 'expired-callback': () => this.updateCaptchaStatus()});</code></li>
     <li><b>Captcha can only be verified once</b>: When a captcha response is verified using the google api, captcha becomes invalidated. In other words, any subsequent API calls for the same captcha response will always fail. To ensure that we always get new one call 'reset' on the reCaptcha instance Ex: <code>window.grecaptcha.reset('&lt;instance id&gt;')</code></li>
+    <li>If you have enabled <code>Content Security Policy</code> you will add to consider adding below exceptions to your policy
+        <ol>
+            <li>font-src 'self' fonts.gstatic.com</li>
+            <li>script-src 'self' https://www.google.com https://www.gstatic.com/</li>
+            <li>frame-src https://www.google.com</li>
+        </ol>
+    </li>
 </ul>
