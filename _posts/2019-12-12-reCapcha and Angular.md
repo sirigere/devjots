@@ -9,7 +9,7 @@ title: reCaptcha and Angular
 ---
 There are many npm libraries offering integration with reCaptcha and Angular. I was not convinced using any of them. Mostly because quality, maintanance etc.. I decided to go through these libraries and reCaptch documentation and comeup with a simple solution on my own so that I can support it if any issues are raised.
 
-Below are some of the issues I need to be addressed while being lazy
+Below are some of the issues that needed me to address while being lazy (DRY!)
 
 <ul>
     <li><b>Encapsulate functionality</b>: Most of the libraries got a directive which adds a script element to download the javascript file. A container element is added to place the reCaptcha. However I decided to include the javascript file once and have a div element as a container to host the reCaptcha.</li>
