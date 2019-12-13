@@ -16,8 +16,8 @@ Below are some of the issues to consider while workign with reCaptcha.
     <li><b>Explict render</b>: Chose to use explict render option instead of default render option. This is necessary due to following reasons
         <ol>
             <li>I maintain different site keys for different environments like dev, qa and prod. This cannot be hard coded into view. I fetch this key part of my initial configuration fetch from server. So UI rendering needs wait until the key is available at the client side</li>
-            <li>In an SPA application, once an user is authenticated, page will be cleared there by loosing the container hosting the reCaptch. Whenever user revisits the same page, it is a new element being recreated. This calls for reloading / recreating the reCaptcha instance</li>
-            <li>When reCaptcha want to notify events like <code>succss, errored, expired</code> by calling callback functions, it would be good to have provided a function reference being aware of angular context</li>
+            <li>In an SPA application, once an user is authenticated, page will be cleared there by loosing the container hosting the reCaptcha. Whenever user revisits the same page, it is a new element being recreated. This calls for reloading / recreating the reCaptcha instance</li>
+            <li>When reCaptcha want to notify events like <code>success, errored, expired</code> by calling callback functions, it would be good to have provided a function reference being aware of angular context</li>
         </ol>
     </li>
     <li><b>Hanlde Expiration</b>: If entering captcha needs to be made mandatory, we need to ensure we always have a valid captcha. So I subscribe to the expiration notification to clear out the cached captcha. To do this, part of <code>window.grecaptcha.render</code> pass the callback function for expiry. Ex: <code>window.grecaptcha.render('..', {..., 'expired-callback': () => this.updateCaptchaStatus()});</code></li>
