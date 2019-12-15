@@ -9,20 +9,20 @@ title: reCAPTCHA and Angular
 ---
 There are many npm libraries offering integration with reCAPTCHA and Angular. I was not convinced using any of them. Mostly because of quality, maintanance etc.. Decided to go through these libraries and reCaptch documentation and comeup with a simple solution so as to support if any issues araise.
 
-### What is a reCAPTCHA
+#### What is a reCAPTCHA
 reCAPTCHA is a service offered by Google. This is offered for free! Question to be answered here is to identify if the user is a human or a bot. Mostly used in the login pages. It as one of the strategy to mitigate Denial of Service attacks. Using Captcha makes attacker to work bit more.
 
-### How does reCAPTCHA work
+#### How does reCAPTCHA work
 reCAPTCHA requires a user to click on a checkbox. When the checkbox is clicked, optionally user is asked to solve an image/audio based puzzle. Once the user completes the puzzle, a  unique identifier / token is returned to the page hosting reCAPTCHA. Now the site implementer can use this token and query the service provider to check if the user has solved the reCAPTCHA. If yes, then proceed with the functionality of the site.
 
-### How to integrate
+#### How to integrate
  * Step 1: Register with service provider.
  * Step 2: After registration, collect `Site Key` and `Secret` from the service provider.
  * Step 3: Service provider provide basic HTML template along with Javascript file which works with the HTML template. Depending on the  UI framework being used, implementor need to adapt the given template to work with the UI framework. `Site key` is used along with the HTML template.
  * Step 4: Create a mechanism to send the token provided by the service to the backend service.  
  * At the server sidem use the REST based API provided to validate if the token is valid or not. While making the call pass along `Secret` key.
 
-### Points to consider while working with reCAPTCHA.
+#### Points to consider while working with reCAPTCHA.
 * **Reference documents**: 
   1. [Google's reCAPTCHA developer Guide](https://developers.google.com/reCAPTCHA/intro)
   2. [Google's admin console](https://www.google.com/reCAPTCHA/admin)
