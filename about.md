@@ -1,8 +1,8 @@
 ---
 layout: default
-title: About Me
+title: About
 ---
-# About page
+# About
 
 Hi, I am Sanjeev. Software developer by profession. I am from India. 
 
