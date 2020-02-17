@@ -16,7 +16,7 @@ Below are some of tips/tricks that I use regularly while working on web projects
     <p class="card-text">
 	
 	If you are a web developer, to tryout a quick sample, you would like to create a web site using the static sample content obtained from some source. Copy past the below content into an <kbd>server.js</kbd> file and excute the commmand <kbd>npm install express</kbd> and <kbd>node server.js</kbd>
-	<pre><code>
+	<pre><code class="javascript">
 		var express = require('express');
 		var app = express();
 
