@@ -15,7 +15,7 @@ Below are some of tips/tricks that I use regularly while working on web projects
     <h5 class="card-title"></h5>
     <p class="card-text">
 	
-	If you are web developer, to tryout a quick sample, you would like to create a web site using the static sample content obtained from some source. Copy past the below content into an <kbd>server.js</kbd> file and excute the commmand <kbd>npm install express</kbd> and <kbd>node server.js</kbd> <br\>
+	If you are a web developer, to tryout a quick sample, you would like to create a web site using the static sample content obtained from some source. Copy past the below content into an <kbd>server.js</kbd> file and excute the commmand <kbd>npm install express</kbd> and <kbd>node server.js</kbd>
 	<pre><code>
 		var express = require('express');
 		var app = express();
@@ -29,3 +29,5 @@ Below are some of tips/tricks that I use regularly while working on web projects
   </div>
 </div>
 <br/>
+
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/languages/go.min.js"></script>
