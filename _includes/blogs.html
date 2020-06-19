@@ -1,17 +1,16 @@
-<div class="my-3 p-3 bg-white rounded shadow-sm">
-	{% for post in site.posts %}
-	<div class="alert alert-primary" role="alert">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<h4 class="alert-heading mr-auto">
-						<a href="{{ post.url }}" class="alert-link">{{ post.title }}</a>
-					</h4>
-				</div>
-				<div class="col-auto">{{ post.date | date_to_string }}</div>
-			</div>
-			<p>{{ post.excerpt }}</p>
-		</div>
+<div class="row">
+	<div class="col-md-1">
 	</div>
-	{% endfor %}
+	<div class="col-md-10">
+		{% for post in site.posts %}
+		<div class="overflow-auto border-top border-bottom border-secondary rounded-top rounded-bottom p-3 p-3 mt-3 mb-3">
+				<div >
+				<h5 class="card-title">{{ post.title }} - {{ post.date | date_to_string }}</h5>
+				<p class="card-text">{{ post.excerpt }}</p>
+				<a href="{{ post.url }}" class="btn btn-secondary">Read</a>
+				</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="col-md-1"></div>
 </div>
