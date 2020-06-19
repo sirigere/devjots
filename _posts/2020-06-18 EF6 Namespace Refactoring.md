@@ -5,7 +5,7 @@ comments: true
 categories: [Entity Framework]
 tags: [EntityFramework, EF6]
 identifier: EF6NameSpaceRefactoring
-title: Refactoring project name space
+title: EF6 Namespace Refactoring
 ---
 As the projects get older, some times old Namespace no longer make sense. It is better to change the name space using refactoring. Namespace refactoring usually should not be a problem. However you are in for a surprise if you happen to refactor the names space used by your code first migration.
 
