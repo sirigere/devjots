@@ -7,7 +7,7 @@ tags: [NodeJS, Express]
 identifier: ProductivityBoosters
 title: Productivity Boosters
 ---
-Documenting some of tips/tricks that I use regularly while working on web projects. These tricks same time while having them in your tool belt always helps.
+Documenting some of tips/tricks that I use regularly while working on web projects. These tricks save you time when needed. Having them in your tool belt always helps.
 
 <div class="card">
     <div class="card-header bg-dark text-white">Serve static content from local folder</div>
