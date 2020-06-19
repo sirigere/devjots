@@ -3,11 +3,19 @@
 	</div>
 	<div class="col-md-10">
 		{% for post in site.posts %}
-		<div class="overflow-auto border-top border-bottom border-secondary rounded-top rounded-bottom p-3 p-3 mt-3 mb-3">
+		<div class="overflow-auto border-bottom border-secondary p-3 p-3 mt-3 mb-3">
 				<div >
-				<h5 class="card-title">{{ post.title }} - {{ post.date | date_to_string }}</h5>
-				<p class="card-text">{{ post.excerpt }}</p>
-				<a href="{{ post.url }}" class="btn btn-secondary">Read</a>
+					<h5 class="card-title">{{ post.title }} - {{ post.date | date_to_string }}</h5>
+				<p class="card-text">
+					{{ post.excerpt | strip_html }}
+					<span>
+						<a href="{{ post.url }}" class="btn">
+							<svg class="bi bi-three-dots" width="1em" height="1em" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+						  </svg>
+						</a>
+					</span>
+				</p>
 				</div>
 		</div>
 		{% endfor %}
