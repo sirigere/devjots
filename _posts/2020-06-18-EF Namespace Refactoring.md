@@ -7,11 +7,7 @@ tags: [EntityFramework, EF6]
 identifier: EF6NameSpaceRefactoring
 title: Entity Framework And Namespace Refactoring
 ---
-As the projects get older, some times old Namespace no longer make sense. 
-
-It is better to change the name space using refactoring. 
-
-Namespace refactoring usually should not be a problem. However you are in for a surprise if you happen to refactor the names space used by your code first migration.
+As the projects get older, some times old Namespace no longer make sense. It is better to change the name space using refactoring. Namespace refactoring usually should not be a problem. However you are in for a surprise if you happen to refactor the names space used by your code first migration.
 
 This is specifically true if you are using Entity framework's Code first migration v6.0. You can confirm this by checking the schema of your <code>__MigrationHistory</code> table. If this table has a column <code>ContextKey</code> then your code uses Namespace else not an issue.
 
