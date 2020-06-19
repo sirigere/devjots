@@ -17,7 +17,7 @@ This is specifically true if you are using Entity framework's Code first migrati
 
 If your entity framework's migtation is using Namespace and you would like to refactor your Namespace, then below solution would work for a typical project. Here typical project mean, a project with single <code>DBContext</code>. Simple trick is to drop the column <code>ContextKey</code>. When the migration is run next time, Entity framework will recreate the column with new Namespace. Below SQL can be used to delete the column
 
-<pre><code class="sql">
+<pre><code class="SQL">
 ALTER TABLE __MigrationHistory DROP PRIMARY KEY;
 ALTER TABLE __MigrationHistory DROP COLUMN ContextKey
 ALTER TABLE __MigrationHistory ADD CONSTRAINT PK_dbo.__MigrationHistory PRIMARY KEY (MigrationId)
