@@ -23,3 +23,5 @@ ALTER TABLE __MigrationHistory DROP COLUMN ContextKey
 ALTER TABLE __MigrationHistory ADD CONSTRAINT PK_dbo.__MigrationHistory PRIMARY KEY (MigrationId)
 </code>
 </pre>
+
+<script>hljs.initHighlightingOnLoad();</script>
