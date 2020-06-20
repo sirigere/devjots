@@ -6,7 +6,9 @@
 		<div class="overflow-auto border-bottom border-secondary p-3 p-3 mt-3 mb-3">
 			<div>
 				<h5 class="card-title">
-					{{ post.title }}
+					<a href="{{ post.url }}" style="color: black;">
+						{{ post.title }}
+					</a>
 					<span class="float-right">
 						{{ post.date | date_to_string }}
 						<svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
