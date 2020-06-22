@@ -5,7 +5,7 @@ comments: true
 categories: [Certification]
 tags: [Certification, AZ-204]
 identifier: az204Certification
-title: Exam AZ-204: Developing Solutions for Microsoft Azure
+title: Exam AZ-204 - Developing Solutions for Microsoft Azure
 ---
 Planning on taking **Exam AZ-204: Developing Solutions for Microsoft Azure**. I will keep updating this page as during the course of my preparation for the exam.
 
