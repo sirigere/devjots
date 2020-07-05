@@ -3,6 +3,9 @@
 	</div>
 	<div class="col-md-10">
 		{% for post in site.posts %}
+		{% if post.identifier contains '-' %}
+		{% continue %}
+		{% endif%}
 		<div class="accordion overflow-auto border-bottom border-secondary p-3 p-3 mt-3 mb-3" id="accrdn">
 			<div>
 				<h5 class="card-title" id="heading{{ forloop.index }}">
