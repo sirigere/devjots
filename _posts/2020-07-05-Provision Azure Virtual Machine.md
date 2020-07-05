@@ -65,13 +65,24 @@ Below hierarchical list shows how different components are dependent on each oth
 
 ### Image
 
-Determines which operating system and applications are pre-installed. Azure offers many pre built images which can be consumed directly. We can also use market place to search for a VM provided by third party sellers. This is one of the cost deciding factor too.
+Determines which operating system and applications are pre-installed. Azure offers many pre built images which can be consumed directly. We can also use market place to search for a VM provided by third party sellers. This is one of the cost deciding factor too. To know which Image to use for creating the VM use below APIs
+1. Use the Get-AzVMImagePublisher command to return a list of image publishers:
+1. Use the Get-AzVMImageOffer to return a list of image offers
+1. The Get-AzVMImageSku command will then filter on the publisher and offer name to return a list of image names
+
+Response from each API would provide information that can be used to call subsequent calls. 
 
 ### Storage
 
 Virtual machine needs to have a space to store the operating system image and data. When a virtual box is created, operating system will be hosted in C drive and a temporary disk (D: drive) is also provided. We can add more disk capacity depending on our need.
 
 ### Create Virtual Machine using Powershell
+
+<pre><code class="powershell">
+$cred = Get-Credential #Type the user name and password for accessing VM
+New-AzVm -ResourceGroupName $resourceGroupName -Name "sample-vm" -Location $location -VirtualNetworkName "sample-vm-rg-vnet" -SubnetName "fontend-servers" -SecurityGroupName "sample-vm-rg-nsg" PublicIpAddressName "sample-vm-rg-pip" -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" -Credential $cred
+</code><pre>
+
 ### Create Virtual Machine using ARM Templates
 ARM templates are written using JSON notation. ARM templates follow the [schema](https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json). Most simplified version of an ARM template would have following sections.
 
@@ -249,6 +260,7 @@ Below is the complete ARM template for creating a typical Virtual Machine. I hav
 
 
 #### References
+1. [Tutorial: Create and Manage Windows VMs with Azure PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm?WT.mc_id=thomasmaurer-blog-thmaure)
 1. Powershell: [Az.Network API Reference](https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-4.3.0)
 1. ARM Template Reference: Create subnet - [Microsoft.Network/virtualNetworks/subnets](https://docs.microsoft.com/en-us/azure/templates/Microsoft.Network/virtualNetworks/subnets)
 1. ARM Template Reference: Create storage account - [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/en-us/azure/templates/Microsoft.Storage/storageAccounts)
