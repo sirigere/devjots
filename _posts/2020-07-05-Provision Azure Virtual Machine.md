@@ -66,9 +66,10 @@ Below hierarchical list shows how different components are dependent on each oth
 ### Image
 
 Determines which operating system and applications are pre-installed. Azure offers many pre built images which can be consumed directly. We can also use market place to search for a VM provided by third party sellers. This is one of the cost deciding factor too. To know which Image to use for creating the VM use below APIs
-1. Use the Get-AzVMImagePublisher command to return a list of image publishers:
-1. Use the Get-AzVMImageOffer to return a list of image offers
-1. The Get-AzVMImageSku command will then filter on the publisher and offer name to return a list of image names
+
+1. Use the ```Get-AzVMImagePublisher``` command to return a list of image publishers:
+1. Use the command ```Get-AzVMImageOffer``` to return a list of image offers
+1. The ```Get-AzVMImageSku``` command will then filter on the publisher and offer name to return a list of image names
 
 Response from each API would provide information that can be used to call subsequent calls. 
 
