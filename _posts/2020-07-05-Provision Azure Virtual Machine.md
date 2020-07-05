@@ -82,7 +82,7 @@ Virtual machine needs to have a space to store the operating system image and da
 <pre><code class="powershell">
 $cred = Get-Credential #Type the user name and password for accessing VM
 New-AzVm -ResourceGroupName $resourceGroupName -Name "sample-vm" -Location $location -VirtualNetworkName "sample-vm-rg-vnet" -SubnetName "fontend-servers" -SecurityGroupName "sample-vm-rg-nsg" PublicIpAddressName "sample-vm-rg-pip" -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" -Credential $cred
-</code><pre>
+</code></pre>
 
 ### Create Virtual Machine using ARM Templates
 ARM templates are written using JSON notation. ARM templates follow the [schema](https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json). Most simplified version of an ARM template would have following sections.
@@ -258,7 +258,6 @@ Below is the complete ARM template for creating a typical Virtual Machine. I hav
   }
 </code>
 </pre>
-
 
 #### References
 1. [Tutorial: Create and Manage Windows VMs with Azure PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm?WT.mc_id=thomasmaurer-blog-thmaure)
