@@ -4,7 +4,7 @@ author: Sanjeev
 comments: true
 categories: [Certification]
 tags: [Certification, AZ-204, IaaS]
-identifier: Az204-Compute-VM
+identifier: Az204-Compute-ARM-VM
 title: Provision VM using ARM Templates
 ---
 
