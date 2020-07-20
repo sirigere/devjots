@@ -7,7 +7,9 @@ tags: [Certification, AZ-204]
 identifier: az204Certification
 title: Exam AZ-204 - Developing Solutions for Microsoft Azure
 ---
-Planning on taking **Exam AZ-204: Developing Solutions for Microsoft Azure**. I will keep updating these notes during the course of my preparation for the exam. Below are links to my study notes.
+Planning on taking **MS Certification AZ-204: Developing Solutions for Microsoft Azure**. I will keep updating these notes during the course of my preparation for the certification. Below are links to my study notes.
+
+As the certification is for developers, it would be good idea to do labs part of the preparation. For some of the services we may need to write C# code. For almost all the other services, it is better to be hands-on creating, updating resources using ```Azure CLI```, ```Powershell``` and ```ARM Templates```.
 
 <ul>
 {% for post in site.posts %}

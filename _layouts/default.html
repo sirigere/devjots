@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>DevJots{% if page.title.size > 0 %} - {% endif %}{{ page.title }}</title>
+    <title>DevJots{% if page.title.size > 0 %} | {% endif %}{{ page.title }}</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -22,9 +22,11 @@
   gtag('config', 'UA-130518813-1');
 </script>
 <style>
-  ul.nav-tabs li a { background-color:transparent!important; color: black!important;}
+  ul.nav-tabs li a { background-color:#6c757d27!important; color: black!important;border: solid 1px #8f969b75!important}
   ul.nav-tabs li a.active {border-bottom-color: transparent!important; color:white!important; background-color:#343a40!important; }
-  .tab-content .tab-pane { border-bottom:solid 2px #6c757d;  border-top: 0; border-bottom-color:#6c757d; padding-bottom: 5px; padding-top: 5px;margin-bottom: 10px;}
+  .tab-content .tab-pane { border-left:solid thin #8f969b75;border-right:solid thin #8f969b75; border-bottom:solid thick #8f969b75;  border-top: 0; border-bottom-color:#6c757d;}
+  pre {margin: -30px;}
+  .hljs{background: none!important;}
 </style>
   </head>
   <body class="bg-light">
