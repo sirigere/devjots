@@ -78,7 +78,7 @@ Navigating to the url `https://localhost:5001/WeatherForecast` should give the s
 
 ![webapi output in browser](\assets\images\azure_containers\webappoutput.png)
 
-Execure command `docker tag webapis:v1 <docker account name>/webapis:v1` in preparationg for moving the image to dockerhub. Run command `docker push <docker account name>/webapis:v1`
+Execute command `docker tag webapis:v1 <docker account name>/webapis:v1` in preparationg for moving the image to dockerhub. Run command `docker push <docker account name>/webapis:v1`
 
 ![webapi output in browser](\assets\images\azure_containers\pushimagetodhub.png)
 
