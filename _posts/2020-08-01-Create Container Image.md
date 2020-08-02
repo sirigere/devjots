@@ -17,8 +17,8 @@ We will do the following to understand different concepts involved to learn the 
 + [Package and Push the app as a docker Image to dockerhub](#package-and-push-the-app-as-a-docker-image-to-dockerhub)
 + [Create an Azure WebApp and deploy the image](#create-an-azure-webapp-and-deploy-the-image)
 + [Create and push the docker image to Azure container registry](#create-and-push-the-docker-image-to-azure-container-registry)
-+ Deploy the image from Azure Container Registry to webapp created earlier
-+ Create and deploy the image from Azure Container Registry to Azure Container Instance
++ [Deploy the image from Azure Container Registry to WebApp created earlier](#deploy-the-image-from-azure-container-registry-to-webapp-created-earlier)
++ [Create and deploy the image from Azure Container Registry to Azure Container Instance](#create-and-deploy-the-image-from-azure-container-registry-to-azure-container-instance)
 
 #### Create and publish a .Net Core WebApi project
 Run the below code from a command line window
@@ -114,11 +114,46 @@ Navigating to the <url returned>/WeatherForecast, should get the similar respons
 
 <pre>
   <code>
+    #Create an instance of Azure Container Registry with admin user
+    az acr create --name acr$randomNum --sku Basic --admin-enabled --query loginServer
+    #Above command returns the login server uri. Execute below command will give the password for the admin user
+    az acr credential show --name acr$randomNum --query passwords[0].value    
   </code>
 </pre>
+
+From your local machine, execute below docker commands `docker login <acr login server>.azurecr.io ` to upload the image to acr
+
+![Login to ACR](\assets\images\azure_containers\logintoacr.png)
+
+Tag the image for acr by executing the command `docker tag webapis:v1 <acr login server>.azurecr.io/webapis:v1` and push the image to the registry by executing the command `docker push <acr login server>.azurecr.io/webapis:v1`
+
+![Push image to ACR](\assets\images\azure_containers\pushimagetoacr.png)
+
+#### Deploy the image from Azure Container Registry to WebApp created earlier
+Lets make some change to the code so that we are sure we are deploying the new image only available from ACR image registry. Update the `WeatherForecast` class with new attributing ReportingTime as `public DateTime ReportingTime => DateTime.Now;`. This would provide when the weather was reported.Execute below commands to build and push the image to acr.
+
+<pre>
+  <code>
+    dotnet build
+    dotnet publish -c Release -o out
+    docker build -f Dockerfile -t webapis:v2 .
+    docker tag webapis:v2 &lt;acr login server&gt;.azurecr.io/webapis:v2
+    docker push &lt;acr login server&gt;.azurecr.io/webapis:v2
+    az webapp config container set --name webapp$randomNum --docker-custom-image-name acr$randomNum.azurecr.io/webapis:v2 --docker-registry-server-url https://acr$randomNum.azurecr.io --docker-registry-server-user acr$randomNum --docker-registry-server-password &lt;Password for admin user in acr &gt;
+  </code>
+</pre>
+
+When navigate to `https://<Webapp url>/WeatherForecast` we should see the updated response
+
+![Response with Reported time](\assets\images\azure_containers\updatedimageonwebapp.png)
+
+#### Create and deploy the image from Azure Container Registry to Azure Container Instance
+
 
 #### References
 * [Docker Documentation](https://docs.docker.com/) 
 * [Host local containerized website in https](https://github.com/dotnet/dotnet-docker/blob/master/samples/host-aspnetcore-https.md)
 * [Microsoft .Net Images in DockerHub](https://hub.docker.com/_/microsoft-dotnet-core)
+* [Run a custom Docker image in App Service](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image)
+
 <script>hljs.initHighlightingOnLoad();</script>
