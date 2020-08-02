@@ -149,7 +149,7 @@ When navigate to `https://<Webapp url>/WeatherForecast` we should see the update
 
 #### Create and deploy the image from Azure Container Registry to Azure Container Instance
 
-Create and deploy the container with `az container create --name aci$randomNum --os-type Linux --cpu 2 --image acr$randomNum.azurecr.io/webapis:v4 --ports 80 --ip-address public --dns-name-label aci$randomNum`
+Create and deploy the container with `az container create --name aci$randomNum --os-type Linux --cpu 2 --image acr$randomNum.azurecr.io/webapis:v2 --ports 80 --ip-address public --dns-name-label aci$randomNum`
 
 Navigate to url http://<Container name>.eastus.azurecontainer.io/WeatherForecast to see our familiar output. Please note we are using http not https here.
 
