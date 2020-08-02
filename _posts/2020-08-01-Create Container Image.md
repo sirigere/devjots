@@ -56,7 +56,7 @@ Within the project directory, create a file with name `Dockerfile` without any e
     # Copy the content from the published directory
     EXPOSE 80
     EXPOSE 443
-    # Expose ports 80 (http) and 444 (https)
+    # Expose ports 80 (http) and 443 (https)
     ENTRYPOINT ["dotnet", "webapis.dll"]
     # Starting command for this image
   </code>
@@ -149,6 +149,9 @@ When navigate to `https://<Webapp url>/WeatherForecast` we should see the update
 
 #### Create and deploy the image from Azure Container Registry to Azure Container Instance
 
+Create and deploy the container with `az container create --name aci$randomNum --os-type Linux --cpu 2 --image acr$randomNum.azurecr.io/webapis:v4 --ports 80 --ip-address public --dns-name-label aci$randomNum`
+
+Navigate to url http://<Container name>.eastus.azurecontainer.io/WeatherForecast to see our familiar output. Please note we are using http not https here.
 
 #### References
 * [Docker Documentation](https://docs.docker.com/) 
