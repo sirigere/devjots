@@ -31,9 +31,9 @@ Below script does the following
 + Create a resource group using ```New-AzResourceGroup``` commandlet
 + Create a Virtual Network using ```New-AzVirtualNetwork``` and ```Set-AzVirtualNetwork``` commandlets
 + Create subnet using ```Add-AzVirtualNetworkSubnetConfig``` commandlet
-+ Create a Network Security Group allowing access to RDP using```New-AzNetworkSecurityGroup``` and ```New-AzNetworkSecurityRuleConfig``` commandlets 
-+ Create a Network Interface Card using```New-AzNetworkInterface``` and ```Set-AzNetworkInterface``` commandlets
-+ Create public IP Address using```New-AzPublicIpAddress``` commandlet
++ Create a Network Security Group allowing access to RDP using ```New-AzNetworkSecurityGroup``` and ```New-AzNetworkSecurityRuleConfig``` commandlets 
++ Create a Network Interface Card using ```New-AzNetworkInterface``` and ```Set-AzNetworkInterface``` commandlets
++ Create public IP Address using ```New-AzPublicIpAddress``` commandlet
 
 <pre>
     <code class="powershell">
