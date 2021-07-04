@@ -11,6 +11,7 @@ Planning on taking **MS Certification AZ-204: Developing Solutions for Microsoft
 
 As this certification is for developers, it would be good idea to do labs part of the preparation. For some of the services we may need to write C# code. For almost all the other services, knowing how we can accomplish the task using ```Azure CLI```, ```Powershell``` and ```ARM Templates``` is recommended.
 
+
 <ul>
 {% for post in site.posts %}
 	{% if post.identifier contains 'Az204-' %}
