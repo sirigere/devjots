@@ -8,7 +8,7 @@ identifier: Az204-Compute-VM
 title: Provision VM and Configure for remote access
 ---
 
-``Azure Virtual Machine`` is a ``IaaS`` (Infrastructure as a Service) offering from Azure. Every Virtual Machine is composed of multiple virtual resources. To Create an Virtual Machine, we can create these virtual services independently. Once done we can combine them to make a Virtual Machine. In this post, I am going to discuss these independent virtual services and how to provision them. There are many ways we can provision these Azure Virtual Machine. We will familiarize ourself with how we can create these resources using ``PowerShell``, ``Azure CLI`` and ``ARM``. Below are the main components of a Azure Virtual Machine.
+``Azure Virtual Machine`` is an ``IaaS`` (Infrastructure as a Service) offering from Azure. Every Virtual Machine is composed of multiple virtual resources. Some of them are independent and some of them are dependent. In other words, we could use these existing resources and create an virtual machine. In this post, I am going to discuss these independent virtual services and how to provision them. There are many ways we can provision these Azure Virtual Machine. We will familiarize ourselves with how we can create these resources using ``PowerShell``, ``Azure CLI`` and ``ARM`` templates. Below are the main components of a Azure Virtual Machine.
 
 + Networking
 + Storage
@@ -19,14 +19,14 @@ Below hierarchical list shows how different components are dependent on each oth
 
 + Virtual Network (VNet)
   + Subnet
-    + Network Security Group (NSG)
+    + Network Security Group (NSG). This is optional to create.
        + Network Security Group Rule
     + Network Interface (NIC)
       + Network Security Group (NSG)
         + Network Security Group Rule
       + Public Ip Address
 
-#### Below Powershell script creates networking resources
+#### Powershell script to create networking resources
 
 <pre>
     <code class="powershell">
@@ -37,7 +37,7 @@ Below hierarchical list shows how different components are dependent on each oth
 
       New-AzResourceGroup -Name $resourceGroupName -Location $location   #Create Resource Group
 
-      $vnet = New-AzVirtualNetwork -Name "sample-vm-rg-vnet" -Location eastus  -ResourceGroupName "sample-vm-rg" -AddressPrefix "10.0.0.0/16"    #Create VNet
+      $vnet = New-AzVirtualNetwork -Name "sample-vm-rg-vnet" -Location $location  -ResourceGroupName $resourceGroupName -AddressPrefix "10.0.0.0/16"    #Create VNet
 
       Add-AzVirtualNetworkSubnetConfig -Name "fontend-servers" -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/24"   #Add subnet configuration with the virtual network
 
