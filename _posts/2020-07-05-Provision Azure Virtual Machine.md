@@ -8,7 +8,7 @@ identifier: Az204-Compute-VM
 title: Provision VM and Configure for remote access
 ---
 
-``Azure Virtual Machine`` is an ``IaaS`` (Infrastructure as a Service) offering from Azure. Every Virtual Machine is composed of multiple virtual resources. Some of them are independent and some of them are dependent. In other words, we could use these existing resources and create an virtual machine. In this post, I am going to discuss these independent virtual services and how to provision them. There are many ways we can provision these Azure Virtual Machine. We will familiarize ourselves with how we can create these resources using ``PowerShell``, ``Azure CLI`` and ``ARM`` templates. Below are the main components of a Azure Virtual Machine.
+``Azure Virtual Machine`` is an ``IaaS`` (Infrastructure as a Service) offering from Azure. Every Virtual Machine is composed of multiple virtual resources. Some of them are independent and some of them are dependent. In other words, we could use these existing resources and create an virtual machine. In this post, I am going to discuss these independent virtual services and how to provision them. There are many ways we can provision these Azure Virtual Machine. We will familiarize ourselves with how we can create these resources using ``PowerShell``, ``Azure CLI`` and ``ARM`` templates. Below are the main components of an Azure Virtual Machine.
 
 + Networking
 + Storage
@@ -27,6 +27,13 @@ Below hierarchical list shows how different components are dependent on each oth
       + Public Ip Address
 
 #### Powershell script to create networking resources
+Below script does the following
++ Create a resource group using ```New-AzResourceGroup``` commandlet
++ Create a Virtual Network using ```New-AzVirtualNetwork``` and ```Set-AzVirtualNetwork``` commandlets
++ Create subnet using ```Add-AzVirtualNetworkSubnetConfig``` commandlet
++ Create a Network Security Group allowing access to RDP using```New-AzNetworkSecurityGroup``` and ```New-AzNetworkSecurityRuleConfig``` commandlets 
++ Create a Network Interface Card using```New-AzNetworkInterface``` and ```Set-AzNetworkInterface``` commandlets
++ Create public IP Address using```New-AzPublicIpAddress``` commandlet
 
 <pre>
     <code class="powershell">
