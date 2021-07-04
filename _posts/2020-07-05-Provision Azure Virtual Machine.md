@@ -14,6 +14,23 @@ title: Provision VM and Configure for remote access
 + Storage
 + Image
 
+Planning is essential before creating virtual machine. As some of the configurations cannot be undone once the virtual machine is created. Below are some of the things to be aware of before creating a virtual machine. Please note this is not the complete list.
++ What operating system we plan to use
++ Topology of the network
++ Scalability, availability expectations of the solution
++ What hardware specification we are looking at? Example, amount of RAM, no of CPUs, size and type (SSD, HSD) of hard disk we are looking for
++ How do we plan to access the virtual machine? Is it public facing or only accessible within an existing/new virtual network etc..
+
+## What operating system we plan to use
+Depending on the answer, we can decide from where we can get the image of the operating system. Possible options are
++ We already might have an image that we plan on using.
++ Search for the image from Azure market place.
++ Some of the operating systems or the version of the OS may not be supported by the Azure platform itself.
+
+## What hardware specification we are looking at?
++ Azure offers multiple pre configured hardware configurations to choose from
++ Not all VM configurations available in all Azure regions
+
 ## Networking
 Below hierarchical list shows how different components are dependent on each other.
 
