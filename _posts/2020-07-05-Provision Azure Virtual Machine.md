@@ -48,8 +48,8 @@ Lets think of a simple virtual network that we would like to create. Below is on
 - Virtual Network will be created in eastus location
 - Specific IP address identifies an host/ device within a netowrk. For a network, we need to specify a range of IP addresses that are allowed within that network. Common mechanism is to use CIDR notation. Using CIDR notation, lets define our network to have address prefix of 10.10.0.0/16. This would freeze first 16 bits of the address space. 
 - Create a subnet with address prefix of 10.10.1.0/24
-- Create a dynamically allocated public ip address so that we can easily access out network/ device through internet.
-- Create a network interface card which would be using the public ip address created and part of the subnet we defined above
+- Create a dynamically allocated public ip address so that we can easily access our network/ device through internet.
+- Create a network interface card which would be use the public ip address created and will be part of the subnet we defined above
 - Create a network security group and rule that would allow RDP access. In other words allow inbound requests on port 3389
 
 We would need to work with multiple Powershell commandlets to accomplish this goal. We would use the following commandlets to accomplish the goal.
@@ -71,31 +71,31 @@ We would need to work with multiple Powershell commandlets to accomplish this go
       $ipName = $resourcePrefix + "ip"
       $location = "eastus"
 
-      Connect-AzAccount   #Connect to your Azure account
+      Connect-AzAccount   #Connect to your Azure account and subscription
 
-      New-AzResourceGroup -Name $resourceGroupName -Location $location   #Create Resource Group
+      New-AzResourceGroup -Name $resourceGroupName -Location $location   #Creates a Resource Group at eastus region
 
-      $vnet = New-AzVirtualNetwork -Name "sample-vm-rg-vnet" -Location $location  -ResourceGroupName $resourceGroupName -AddressPrefix "10.0.0.0/16"    #Create VNet
+      #Create an in-memory VNet configuration object
+      $vnet = New-AzVirtualNetwork -Name $vnetName -Location $location  -ResourceGroupName $resourceGroupName -AddressPrefix "10.10.0.0/16"    
 
-      Add-AzVirtualNetworkSubnetConfig -Name "fontend-servers" -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/24"   #Add subnet configuration with the virtual network
+      Add-AzVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet -AddressPrefix "10.10.1.0/24"   #Add subnet configuration to the virtual network
 
-      $vnet | Set-AzVirtualNetwork #Persist the new subnet created
+      $vnet | Set-AzVirtualNetwork #Create the virtual network
 
-      $vnet = Get-AzVirtualNetwork -Name "sample-vm-rg-vnet" #Re-initial the vnet variable as we need the id of the newy added subnet
+      $vnet = Get-AzVirtualNetwork -Name $vnetName #Re-initialize the vnet variable as we need the id of the newly added subnet
 
-      $subnet = Get-AzVirtualNetworkSubnetConfig -Name "fontend-servers" -VirtualNetwork $vnet #Get the definition of subnet as we need this information in next steps
+      $subnet = Get-AzVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet #Get the definition of subnet as we need this information in next steps
 
-      $pip = New-AzPublicIpAddress -Name "sample-vm-rg-pip" -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic  #Create a public ip address
+      $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic  #Create a public ip address
 
-      $nic = New-AzNetworkInterface -Name "sample-vm-rg-nic" -Location $location -ResourceGroupName $resourceGroupName 
-      -Subnet $subnet -PublicIpAddress $pip
+      $nic = New-AzNetworkInterface -Name $nicName -Location $location -ResourceGroupName $resourceGroupName -Subnet $subnet -PublicIpAddress $pip
 
       $allowRdpRule = New-AzNetworkSecurityRuleConfig -Name "Allow RDP" -Protocol Tcp -Direction Inbound -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
 
-      $nsg = New-AzNetworkSecurityGroup -Name "sample-vm-rg-nsg" -ResourceGroupName $resourceGroupName -Location $location -SecurityRules $allowRdpRule  #Create NSG with the allow rdp rule
+      $nsg = New-AzNetworkSecurityGroup -Name $resourcePrefix + "nsg" -ResourceGroupName $resourceGroupName -Location $location -SecurityRules $allowRdpRule  #Create NSG with the allow rdp rule
 
       $nic.NetworkSecurityGroup = $nsg
-      $nic | Set-AzNetworkInterface  #Connect the NSG to NIC. We could do the same thing with subnet as well
+      $nic | Set-AzNetworkInterface  #Connect the NSG to NIC. We could apply this nsg at subnet level as well
 
       Get-AzResource -ResourceGroupName $resourceGroupName | format-table # to get all the resources we have created so far!
       </code>
