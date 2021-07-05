@@ -44,17 +44,31 @@ Below hierarchical list shows how different components are dependent on each oth
       + Public Ip Address
 
 #### Powershell script to create networking resources
-Below script does the following
+Lets think of a simple virtual network that we would like to create. Below is one such specification
+- Virtual Network will be created in eastus location
+- Specific IP address identifies an host/ device within a netowrk. For a network, we need to specify a range of IP addresses that are allowed within that network. Common mechanism is to use CIDR notation. Using CIDR notation, lets define our network to have address prefix of 10.10.0.0/16. This would freeze first 16 bits of the address space. 
+- Create a subnet with address prefix of 10.10.1.0/24
+- Create a dynamically allocated public ip address so that we can easily access out network/ device through internet.
+- Create a network interface card which would be using the public ip address created and part of the subnet we defined above
+- Create a network security group and rule that would allow RDP access. In other words allow inbound requests on port 3389
+
+We would need to work with multiple Powershell commandlets to accomplish this goal. We would use the following commandlets to accomplish the goal.
 + Create a resource group using ```New-AzResourceGroup``` commandlet
 + Create a Virtual Network using ```New-AzVirtualNetwork``` and ```Set-AzVirtualNetwork``` commandlets
 + Create subnet using ```Add-AzVirtualNetworkSubnetConfig``` commandlet
 + Create a Network Security Group allowing access to RDP using ```New-AzNetworkSecurityGroup``` and ```New-AzNetworkSecurityRuleConfig``` commandlets 
 + Create a Network Interface Card using ```New-AzNetworkInterface``` and ```Set-AzNetworkInterface``` commandlets
 + Create public IP Address using ```New-AzPublicIpAddress``` commandlet
++ I have omitted the commandlets that would be required to authenticate and authorize the session as that would be repeatation or is not the main theme of this post. 
 
 <pre>
     <code class="powershell">
-      $resourceGroupName = "sample-vm-rg"
+      $resourcePrefix  = "demo-vm-creation-"
+      $resourceGroupName = $resourcePrefix + "rg"
+      $vnetName = $resourcePrefix + "vnet"
+      $subnetName = $resourcePrefix + "frontend-subnet"
+      $nicName = $resourcePrefix + "nic"
+      $ipName = $resourcePrefix + "ip"
       $location = "eastus"
 
       Connect-AzAccount   #Connect to your Azure account
